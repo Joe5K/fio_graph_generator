@@ -6,15 +6,13 @@ FIO_CSV_FILENAME = "fio.csv"
 
 x, y = [], []
 total_amount = 0
-last_date = None
-cached_day_val = 0
 with open(FIO_CSV_FILENAME, "r", encoding="utf8") as reader:
     reader.readline()
     while line := reader.readline()[:-1]:
         date, amount = line.replace("\"", "").split(";")[:2]
-        date, amount = datetime.strptime(date, "%d.%m.%Y"), float(amount.replace(",", "."))
-        total_amount += amount
-        x.append(date)
+        x.append(datetime.strptime(date, "%d.%m.%Y"))
+        
+        total_amount += float(amount.replace(",", "."))
         y.append(total_amount)
 
 plt.subplots_adjust(bottom=.12, left=.17)
