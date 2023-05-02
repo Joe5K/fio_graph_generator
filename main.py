@@ -10,9 +10,8 @@ with open(FIO_CSV_FILENAME, "r", encoding="utf8") as reader:
     reader.readline()
     while line := reader.readline()[:-1]:
         date, amount = line.replace("\"", "").split(";")[:2]
-        x.append(datetime.strptime(date, "%d.%m.%Y"))
-        
         total_amount += float(amount.replace(",", "."))
+        x.append(datetime.strptime(date, "%d.%m.%Y"))
         y.append(total_amount)
 
 plt.subplots_adjust(bottom=.12, left=.17)
