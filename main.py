@@ -13,7 +13,7 @@ with open(FIO_CSV_FILENAME, "r", encoding="utf8") as reader:
     while line := reader.readline()[:-1]:
         date, amount = line.replace("\"", "").split(";")[:2]
         date, amount = datetime.strptime(date, "%d.%m.%Y"), float(amount.replace(",", "."))
-        total_amount += randint(-9800, 10000)
+        total_amount += amount
         x.append(date)
         y.append(total_amount)
 
