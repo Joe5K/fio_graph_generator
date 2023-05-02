@@ -6,5 +6,5 @@ Download CSV file from fio bank:
 ![fio.png](imgs/fio.png)
 
 Copy the file into project folder, name it "fio.csv" or any other name with changing the filename in constraint in main.py file.  
-Example output:
+Example output:  
 ![graph.png](imgs/graph.png)
